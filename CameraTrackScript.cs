@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Rowan Lindsay
+ * 6/9/2018
+*/
+
 public class CameraTrackScript : MonoBehaviour {
 
     private static float cameraAngle = 25f;
@@ -26,6 +31,6 @@ public class CameraTrackScript : MonoBehaviour {
 
         transform.RotateAround(target.position, target.up, angle);
         transform.LookAt(target);
-        transform.RotateAround(transform.position, transform.right, -1 * 25f);
+        transform.RotateAround(transform.position, transform.right, -1 * cameraAngle);
 	}
 }
