@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class CameraTrackScript : MonoBehaviour {
 
+    private static float cameraAngle = 25f;
+
     public Transform target;
 
-	// Use this for initialization
 	void Start () {	
 	}
 	
-	// Update is called once per frame
 	void Update () {
-        
+
+        // set a position slightly behind target
         float newX = target.transform.position.x;
         float newY = target.transform.position.y + 1.5f;
         float newZ = target.transform.position.z -2f;
         transform.position = new Vector3(newX, newY, newZ);
 
-        //transform.rotation = target.transform.rotation;
+
+        // adjust rotation and lookdown angle
+
         float angle = target.transform.eulerAngles.y;
-
-        print(angle);
-
-        //transform.rotation = Quaternion.AngleAxis(-1 * angle, target.up);
-
-        //transform.LookAt(target);
 
         transform.RotateAround(target.position, target.up, angle);
         transform.LookAt(target);
-        transform.RotateAround(transform.position, transform.right, -25f);
+        transform.RotateAround(transform.position, transform.right, -1 * 25f);
 	}
 }
